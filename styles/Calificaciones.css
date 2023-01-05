@@ -1,0 +1,125 @@
+.card-calificacion{
+    height: 5rem;
+    width: calc(100% - 1rem);
+    background-color: rgba(44, 131, 162, 1);
+    margin-top: 0.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    color: white;
+    font-size: large;
+}
+
+#buscador-materias{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#buscador-input{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: large;
+    border-radius: 10px;
+    border: 2px solid rgb(0, 136, 255);
+}
+
+
+
+.background-modal{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-ocultar-modal{
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+#modal-calificacion{
+    height: 22rem;
+    width: 18rem;
+    background-color: rgba(44, 131, 162, 1);
+    padding: 1rem;
+    border-radius: 10px;
+    color: white;    
+}
+
+.modal-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.notas-modal{
+    display: grid;
+    margin-bottom: 1rem;
+    font-weight: 100;
+}
+
+.tipo-nota-modal{
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.porcentaje-nota-modal{
+    font-size: 1.5rem;
+    text-align: end;
+}
+
+.modal-footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.btn-revision{
+    color: white;
+    background-color: rgb(0, 136, 255);
+    padding: 0.5rem 1rem;
+    border: 0px;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    font-size: x-large;
+}
+
+#modal-confirmacion-revision{
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    min-height: 10rem;
+    max-width: 18rem;
+}
+
+#texto-confirmacion{
+    font-weight: bolder;
+    font-size: x-large;
+    text-overflow: ellipsis;
+}
+
+.btn-confirmacion{
+    margin-top: 3rem;
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: x-large;
+    width: 100px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: white;
+    font-weight: 50;
+}
+
+#btn-conf-si{
+    background-color: rgb(0, 136, 255);
+    color: white;
+}
