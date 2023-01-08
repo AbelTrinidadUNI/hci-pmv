@@ -19,7 +19,7 @@ const Calificaciones = () => {
 
   return (
     <>
-      <div>
+      <div id="lista-materias-calificaciones">
         <h2>Calificaciones</h2>
         <div id="buscador-materias">
             <input id="buscador-input" type="text" placeholder="Buscar..." onChange={(e) => setBuscador(e.target.value)}/>

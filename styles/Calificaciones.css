@@ -123,3 +123,7 @@
     background-color: rgb(0, 136, 255);
     color: white;
 }
+
+#lista-materias-calificaciones{
+    padding-bottom: 1rem;
+}

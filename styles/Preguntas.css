@@ -1,0 +1,129 @@
+#cabecera-preguntas{
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-pregunta{
+    font-size: x-large;
+    color: rgba(0, 136, 255, 1);
+}
+
+#buscador-preguntas{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card-pregunta{
+    height: 5rem;
+    background-color: rgba(44, 131, 162, 1);
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    color: white;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    overflow: inherit;
+}
+
+.foto-perfil{
+    width: 18%;
+    height: 5rem;
+}
+
+
+.txt-pregunta-card{
+    font-size: large;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 82%;
+}
+
+#modal-preguntas{
+    width: 18rem;
+    background-color: rgb(255, 255, 255);
+    padding: 1rem;
+    border-radius: 10px;
+    color: white;    
+}
+
+.card-pregunta-modal{
+    background-color: rgba(44, 131, 162, 1);
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+.foto-perfil-pregunta{
+    font-size: 2rem;
+    height: 3.5rem;
+}
+
+.cabecera-pregunta-card-modal{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.btn-ocultar-modal-pregunta{
+    color: black;
+}
+
+.tags-pregunta{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.text-pregunta-modal{
+    margin-bottom: 1rem;
+}
+
+.fecha-pregunta-modal{
+    text-align: end;
+}
+
+.comentarios-pregunta-modal{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cantidad-comentarios{
+    color: #000;
+}
+
+.input-comentario-modal{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.input-comentario-modal > input {
+    padding: 0.5rem;
+    width: 100%;
+    border: 2px solid rgba(0, 136, 255, 1);
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+
+.card-comentario-pregunta{
+    background-color: rgba(44, 131, 162, 1);
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-card-comentario{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: small;
+}
+
+.nombre-comentador{
+    margin-right: 0.4rem;
+}
+
+.lista-comentarios-pregunta{
+    max-height: 18rem;
+    overflow-y: auto;
+}

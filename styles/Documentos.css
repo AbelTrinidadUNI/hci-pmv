@@ -1,0 +1,118 @@
+#documentos>h2 {
+    margin-bottom: 1rem;
+}
+
+.card-documento {
+    height: 5rem;
+    background-color: rgba(44, 131, 162, 1);
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    border-radius: 10px;
+    font-size: xx-large;
+}
+
+.card-doc-header,
+.card-doc-body {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin: 0.5rem;
+    align-items: center;
+}
+
+#btn-doc-confirmar {
+    padding: 1rem;
+    position: absolute;
+    bottom: 50px;
+    width: calc(100vw - 1rem);
+    border-radius: 10px;
+    border: 0px;
+    background-color: rgb(0, 136, 255);
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+#tabla-doc-conf {
+    width: 100%;
+    text-align: justify;
+    font-size: large;
+    border-collapse: collapse;
+}
+
+
+#tabla-doc-conf thead{
+    font-size: larger;
+    padding-bottom: 2rem;
+    /* border-bottom: 2px solid black; */
+}
+
+.confirmar, .cancelar{
+    width: 50%;
+    padding: 0.5rem;
+    font-size: large;
+    font-weight: bolder;
+    border-radius: 10px;
+    border: 2px solid rgb(0, 136, 255);
+    margin: 0.5rem;
+}
+
+.cancelar{
+    background-color: white;
+    color: rgb(0, 136, 255);
+}
+
+.confirmar{
+    background-color: rgb(0, 136, 255);
+    color: white;
+}
+
+#modal-conf-doc{
+    min-height: 10rem;
+    width: 18rem;
+    background-color: rgb(255, 255, 255);
+    padding: 1rem;
+    border-radius: 10px;
+    color: black;    
+}
+
+#confirmacion-titulo{
+    display: flex;
+    justify-content: center;
+}
+
+
+#tabla-doc-conf th {
+    border-style: solid;
+    border-width: 0px;
+    border-bottom-width: 2px;
+    padding-bottom: 0.3rem;
+}
+
+#tabla-doc-conf td{
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+#tabla-doc-conf tfoot{
+    font-size: larger;
+    font-weight: bold;
+    color: rgb(0, 136, 255);
+    
+}
+
+#total-label{
+    text-align: center;
+}
+
+#total-monto{
+    text-align: justify;        
+}
