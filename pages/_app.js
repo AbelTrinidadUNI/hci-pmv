@@ -3,6 +3,9 @@
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import "../styles/layout.css";
 import "../styles/CardInicio.css";
+import "../styles/LogIn.css";
+// add bootstrap css 
+import 'bootstrap/dist/css/bootstrap.css'
 import "../styles/Calificaciones.css";
 import "../styles/Documentos.css";
 import "../styles/Becas.css";
