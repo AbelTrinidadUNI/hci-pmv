@@ -1,11 +1,20 @@
 import { Fragment, useState } from "react";
-import { Row, Form, Col, Button, InputGroup } from "react-bootstrap";
+import { Row, Form, Button, InputGroup, Spinner, Col } from "react-bootstrap";
 import * as Yup from 'yup';
 import { ErrorMessage, Formik } from "formik";
+import axios from "axios";
+import Url from '../../common/Url';
+import { useRouter } from "next/router";
+import useLocalStorage from "../../hooks/UseLocalStorage";
+
 
 const Login = (props) => {
 
 
+    const [loading, setLoading] = useState(false);
+
+
+    const router = useRouter();
 
     const validationSchema = Yup.object().shape({
         email: Yup.string().required('El email es requerido').email('Debe ser de formato Correo'),
@@ -13,11 +22,29 @@ const Login = (props) => {
     });
 
 
+
+
     const initialValues = {
         email: '',
         password: ''
     }
-    const handleSubmit = () => {
+    const handleSubmit = (value) => {
+        setLoading(true);
+        axios.post(`${Url()}/api/account/login`, value).then(r => {
+            if (r.status === 200) {
+                localStorage.setItem('token', JSON.stringify(r.data));
+                setLoading(false);
+                router.push('/');
+                
+            }
+        })
+        .catch(e => {
+            setLoading(false);
+            console.log(e);
+            alert("Credenciales no validas, intenta de nuevo")
+        })
+
+
         props.onSubmit();
     }
     return (
@@ -78,9 +105,16 @@ const Login = (props) => {
                         </Row>
 
                         <Row>
-                            <Button id = "botonLogin" type="submit">
-                                Log In
-                            </Button>
+                            <Col>
+                                <Button id="botonLogin" type="submit">
+                                    Log In
+                                </Button>
+                            </Col>
+                            {loading && <Col>
+                                <Spinner animation="border" variant="primary" />
+                            </Col>}
+
+
                         </Row>
 
 
