@@ -5,12 +5,12 @@ import Inicio from '../inicio/Inicio'
 import Navbar from '../navbar/Navbar'
 
 const Layout = () => {
-  const [view, setView] = useState(<Inicio/>);
+  
   
   return <>
       <Cabecera/>
-      <Contenido view={view}/>
-      <Navbar setView={setView}/>
+      <Contenido/>
+      <Navbar/>
     </>
 }
 
