@@ -12,7 +12,7 @@ ul{
     padding: 0px;
 }
 
-.cabecera, .navbar{
+.cabecera, .mynavbar{
     list-style: none;
     background-color: rgb(255, 255, 255);
     display: flex;
@@ -27,7 +27,7 @@ ul{
     top: 0;
     width: 100vw;
 }
-.navbar{
+.mynavbar{
     box-sizing: border-box;
     position: absolute;
     bottom: 0;
@@ -55,14 +55,14 @@ ul{
 }
 
 
-.navbar > li{
+.mynavbar > li{
     width: 20%;
     text-align: center;
     display: grid;
     /* border: 1px solid red; */
 }
 
-.navbar span{
+.mynavbar span{
     font-size: x-small;
 }
 

@@ -15,16 +15,16 @@ const ModalCalificacion = (props) => {
         </div>
         <div className="modal-body">
           <div className="notas-modal">
-            <span className="tipo-nota-modal">Nota Parcial</span>
-            <span className="porcentaje-nota-modal">98%</span>
+            <span className="tipo-nota-modal">PP</span>
+            <span className="porcentaje-nota-modal">{props.pp}</span>
           </div>
           <div className="notas-modal">
-            <span className="tipo-nota-modal">Nota del Examén</span>
-            <span className="porcentaje-nota-modal">98%</span>
+            <span className="tipo-nota-modal">PF</span>
+            <span className="porcentaje-nota-modal">{props.pf}</span>
           </div>
           <div className="notas-modal">
             <span className="tipo-nota-modal">Nota Final</span>
-            <span className="porcentaje-nota-modal">98%</span>
+            <span className="porcentaje-nota-modal">{props.score}</span>
           </div>
         </div>
         <div className="modal-footer">
