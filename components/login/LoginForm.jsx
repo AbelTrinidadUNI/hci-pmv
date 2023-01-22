@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
 
 
+
 const Login = () => {
 
 
@@ -58,26 +59,29 @@ const Login = () => {
                 }) => (
                     <Form noValidate onSubmit={handleSubmit}>
                         <Row className="mb-3">
-                            <Form.Group>
-                                <Form.Label>
-                                    Email
-                                </Form.Label>
-                                <InputGroup hasValidation>
-                                    <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-                                    <Form.Control
-                                        type="mail"
-                                        name="email"
-                                        values={values.email}
-                                        onChange={handleChange}
-                                        isInvalid={!!errors.email}
-                                    />
-                                    <Form.Control.Feedback type="invalid">
-                                        {errors.email}
-                                    </Form.Control.Feedback>
-                                </InputGroup>
+                            <Col>
+                                <Form.Group>
+                                    <Form.Label>
+                                        Email
+                                    </Form.Label>
+                                    <InputGroup hasValidation>
+                                        <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+                                        <Form.Control autocomplete="off"
+                                            type="mail"
+                                            name="email"
+                                            values={values.email}
+                                            onChange={handleChange}
+                                            isInvalid={!!errors.email}
+                                        />
+                                        <Form.Control.Feedback type="invalid">
+                                            {errors.email}
+                                        </Form.Control.Feedback>
+                                    </InputGroup>
 
 
-                            </Form.Group>
+                                </Form.Group>
+                            </Col>
+                            
                         </Row>
 
                         <Row className="mb-3">
