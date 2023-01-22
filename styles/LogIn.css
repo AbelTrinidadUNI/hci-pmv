@@ -1,0 +1,17 @@
+#container {
+    margin-top: 15%;
+    width: 400px;
+    height: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#botonLogin {
+    width: 80px;
+    height: 30px;
+    margin: auto;
+}
+
+#tituloLogin {
+    text-align: center;
+}

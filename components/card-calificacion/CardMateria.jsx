@@ -14,7 +14,13 @@ const CardMateria = (props) => {
       >
         <h3>{props.nombreMateria}</h3>
       </div>
-      <ModalCalificacion mostrar={mostrar} setMostrar={setMostrar} nombreMateria={props.nombreMateria} />
+      <ModalCalificacion mostrar={mostrar} 
+        setMostrar={setMostrar} 
+        nombreMateria={props.nombreMateria} 
+        pp = {props.pp}
+        pf = {props.pf}
+        score = {props.score}
+        />
     </>
   );
 };

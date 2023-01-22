@@ -74,12 +74,12 @@ const Navbar = (props) => {
 
   return (
     <>
-      <ul className="navbar">
+      <ul className="mynavbar">
         <li
           id="btn-inicio"
           style={{ color: seleccion.inicio }}
           onClick={(e) => {
-            props.setView(<Inicio />);
+            props.setView(<Inicio name= {props.name}/>);
             modificador("inicio");
           }}
         >
