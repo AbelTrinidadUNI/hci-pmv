@@ -1,18 +1,18 @@
 import { Fragment, useState } from "react";
 import { Row, Form, Button, InputGroup, Spinner, Col } from "react-bootstrap";
 import * as Yup from 'yup';
-import { ErrorMessage, Formik } from "formik";
+import {  Formik } from "formik";
 import axios from "axios";
 import Url from '../../common/Url';
 import { useRouter } from "next/router";
-import useLocalStorage from "../../hooks/UseLocalStorage";
+import toast, { Toaster } from "react-hot-toast";
 
 
-const Login = (props) => {
+const Login = () => {
 
 
-    const [loading, setLoading] = useState(false);
-
+    const [toastLoading, setToastLoading] = useState(null);
+    
 
     const router = useRouter();
 
@@ -29,23 +29,19 @@ const Login = (props) => {
         password: ''
     }
     const handleSubmit = (value) => {
-        setLoading(true);
+        setToastLoading(toast.loading("Cargando"));
         axios.post(`${Url()}/api/account/login`, value).then(r => {
             if (r.status === 200) {
                 localStorage.setItem('token', JSON.stringify(r.data));
-                setLoading(false);
+                toast.success("Logueado con exito");
                 router.push('/');
                 
             }
         })
         .catch(e => {
-            setLoading(false);
+            toast.error("Credenciales no validas");
             console.log(e);
-            alert("Credenciales no validas, intenta de nuevo")
-        })
-
-
-        props.onSubmit();
+        }).finally(() => toast.dismiss(toastLoading));
     }
     return (
         <Fragment>
@@ -110,9 +106,7 @@ const Login = (props) => {
                                     Log In
                                 </Button>
                             </Col>
-                            {loading && <Col>
-                                <Spinner animation="border" variant="primary" />
-                            </Col>}
+                            <Toaster />
 
 
                         </Row>
