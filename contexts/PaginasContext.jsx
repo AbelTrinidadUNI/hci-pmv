@@ -11,6 +11,7 @@ const PaginasContext = createContext();
 const PaginasProvider = ({ children }) => {
 
     const [paginaActual, setPaginaActual] = useState(<Inicio />);
+    const [showMenuModal, setShowMenuModal] = useState(false)
 
     const estiloSeleccion = {
         color: "rgb(0, 136, 255)",
@@ -77,7 +78,7 @@ const PaginasProvider = ({ children }) => {
         }
     };
 
-    const paginas = { paginaActual, seleccionNavBar:seleccion, cambiarPagina };
+    const paginas = { paginaActual, seleccionNavBar:seleccion, cambiarPagina, showMenuModal, setShowMenuModal };
 
     return <>
         <PaginasContext.Provider value={paginas}>

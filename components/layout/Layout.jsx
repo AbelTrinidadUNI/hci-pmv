@@ -14,6 +14,7 @@ const Layout = () => {
       <Cabecera/>
       <Contenido/>
       <Navbar/>
+      <ModalMenu />
     </>
 }
 
