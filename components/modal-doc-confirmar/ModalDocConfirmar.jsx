@@ -1,3 +1,4 @@
+import { map } from 'lodash'
 import React from 'react'
 
 const ModalDocConfirmar = (props) => {
@@ -19,19 +20,16 @@ const ModalDocConfirmar = (props) => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className='fila-tabla-confirmacion'>
-                                <td>Boleto Estudiantil</td>
-                                <td>30.000</td>
-                            </tr>
-                            <tr className='fila-tabla-confirmacion'>
-                                <td>Promedio</td>
-                                <td>20.000</td>
-                            </tr>
+                            {props.view === "flex" && map(props.docSeleccionados, (d) => <tr key={d.id} className='fila-tabla-confirmacion'>
+                                <td>{d.nombre}</td>
+                                <td>{d.precio}</td>
+                            </tr>)}
+                            
                         </tbody>
                         <tfoot>
                             <tr className='fila-tabla-confirmacion'>
                                 <td id='total-label'>Total</td>
-                                <td id='total-monto'>50.000</td>
+                                <td id='total-monto'>{props.total}</td>
                             </tr>
                         </tfoot>
                     </table>

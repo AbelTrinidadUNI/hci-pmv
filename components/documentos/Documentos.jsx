@@ -25,9 +25,16 @@ const Documentos = () => {
     }
 
     const addTotal = (id, precio, seleccion) => {
-        setDocSeleccionados([...docSeleccionados, documentos.filter(a => a.id == id)[0]])
         const newTotal = seleccion ? total + precio : (total - precio);
         setTotal(newTotal >= 0 ? newTotal : 0);
+
+        if(seleccion){
+            setDocSeleccionados([...docSeleccionados, documentos.filter(a => a.id == id)[0]])
+        }else{
+            setDocSeleccionados([...(docSeleccionados.filter(a => a.id !== id))])
+        }
+        /*if(newTotal > 0)
+            setDocSeleccionados([...docSeleccionados, documentos.filter(a => a.id == id)[0]])*/
     }
 
     useEffect(() => {
@@ -49,7 +56,7 @@ const Documentos = () => {
                 <span>Confirmar</span>
                 <span>{total} gs.</span>
             </button>
-            <ModalDocConfirmar view={view} setView={setView} confirmar={confirmarSolicitud}/>   
+            <ModalDocConfirmar view={view} setView={setView} confirmar={confirmarSolicitud} docSeleccionados={docSeleccionados} total={total}/>   
         </div>
     </>
 }
