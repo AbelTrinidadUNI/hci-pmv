@@ -25,7 +25,8 @@ const Documentos = () => {
     }
 
     const addTotal = (id, precio, seleccion) => {
-        setDocSeleccionados([...docSeleccionados, documentos.filter(a => a.id == id)[0]])
+        console.log(docSeleccionados);
+        setDocSeleccionados([...docSeleccionados, documentos.find(a => a.id == id)])
         const newTotal = seleccion ? total + precio : (total - precio);
         setTotal(newTotal >= 0 ? newTotal : 0);
     }
@@ -49,7 +50,7 @@ const Documentos = () => {
                 <span>Confirmar</span>
                 <span>{total} gs.</span>
             </button>
-            <ModalDocConfirmar view={view} setView={setView} confirmar={confirmarSolicitud}/>   
+            <ModalDocConfirmar view={view} setView={setView} confirmar={confirmarSolicitud} seleccionados = {docSeleccionados} total ={total}/>   
         </div>
     </>
 }

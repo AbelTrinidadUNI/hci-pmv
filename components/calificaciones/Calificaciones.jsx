@@ -3,14 +3,15 @@ import React, { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import CardMateria from "../card-calificacion/CardMateria";
-import ModalCalificacion from "../modal-calificacion/ModalCalificacion";
 import Url from '../../common/Url';
 import { Spinner } from "react-bootstrap";
+import toast, {Toaster} from 'react-hot-toast';
+
 
 const Calificaciones = () => {
     const [buscador, setBuscador] = useState("");
     const [materias, setMaterias] =  useState([]);
-    const [spinner, setSpinner] = useState(true);
+    const [toastLoading, setToastLoading] = useState(null);
 
 
     const isMounted = useRef(true);
@@ -22,8 +23,9 @@ const Calificaciones = () => {
     }, []);
 
     useEffect(() => {
+      if(isMounted.current){
       const data = JSON.parse(localStorage.getItem('token'));
-      
+      setToastLoading(toast.loading("cargando..."));
       const header = new Headers();
       header.append("Authorization", `bearer ${data.token}`);
       header.append("Content-Type", "application/json");
@@ -34,29 +36,28 @@ const Calificaciones = () => {
         redirect :'follow'
       }
 
-      fetch(`${Url()}/api/subjects/${data.email}`, requestOption)
+      fetch(`${Url()}/api/subjects/email/${data.email}`, requestOption)
         .then(r => r.json())
         .then(r => {
           setMaterias(r);
-          setSpinner(false);
+          toast.dismiss(toastLoading);
         })
         .catch(console.log)
-
-        
-        
+      }
     }, [])
 
   
 
   return (
     <>
+      <Toaster /> 
       <div id="lista-materias-calificaciones">
         <h2>Calificaciones</h2>
         <div id="buscador-materias">
             <input id="buscador-input" type="text" placeholder="Buscar..." onChange={(e) => setBuscador(e.target.value)}/>
         </div>
 
-        {spinner ? <Spinner variant="primary" animation="border"/> : <div className="listaMaterias">
+        <div className="listaMaterias">
             {materias.filter(x => x.name.startsWith(buscador))
             .map(m => <CardMateria 
               key={m.id} 
@@ -65,7 +66,7 @@ const Calificaciones = () => {
               pf = {m.pf}
               score = {m.score}
               />)}
-        </div>}
+        </div>
       </div>
       
     </>
