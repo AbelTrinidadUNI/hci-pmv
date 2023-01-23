@@ -15,7 +15,7 @@ const Inicio = () => {
     <div id="inicio">
       <div id="saludo">
         <h2>Bienvenido,</h2>
-        <h2>{data.user}</h2>
+        <h2>{data?.user}</h2>
       </div>
       <br />
       <div id="cardsInicio">
