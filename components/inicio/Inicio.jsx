@@ -20,7 +20,7 @@ const Inicio = () => {
       <br />
       <div id="cardsInicio">
         <CardInicio titulo="Preguntas" />
-        <CardInicio titulo="Calificación" />
+        <CardInicio titulo="Calificaciones" />
         <CardInicio titulo="Becas" />
         <CardInicio titulo="Documentos" />
       </div>

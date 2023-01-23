@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import PaginasContext from "../../contexts/PaginasContext";
 import Becas from "../becas/Becas";
 import Calificaciones from "../calificaciones/Calificaciones";
 import CardBeca from "../card-beca/CardBeca";
@@ -11,10 +12,10 @@ const Navbar = (props) => {
       props.setView(<Calificaciones/>) 
       console.log("califiicaciones")
   } */
-  const estiloSeleccion = {
+  /* const estiloseleccionNavBar = {
     color: "rgb(0, 136, 255)",
   };
-  const [seleccion, setSeleccion] = useState({
+  const [seleccionNavBar, setseleccionNavBar] = useState({
     inicio: "rgb(0, 136, 255)",
     preguntas: "gray",
     becas: "gray",
@@ -25,7 +26,7 @@ const Navbar = (props) => {
   const modificador = (nombreBtn) => {
     switch (nombreBtn) {
       case "inicio":
-        setSeleccion({
+        setseleccionNavBar({
           inicio: "rgb(0, 136, 255)",
           preguntas: "gray",
           becas: "gray",
@@ -34,7 +35,7 @@ const Navbar = (props) => {
         });
         break;
       case "calificaciones":
-        setSeleccion({
+        setseleccionNavBar({
           inicio: "gray",
           preguntas: "gray",
           becas: "gray",
@@ -43,7 +44,7 @@ const Navbar = (props) => {
         });
         break;
       case "preguntas":
-        setSeleccion({
+        setseleccionNavBar({
           inicio: "gray",
           preguntas: "rgb(0, 136, 255)",
           becas: "gray",
@@ -52,7 +53,7 @@ const Navbar = (props) => {
         });
         break;
       case "becas":
-        setSeleccion({
+        setseleccionNavBar({
           inicio: "gray",
           becas: "rgb(0, 136, 255)",
           preguntas: "gray",
@@ -61,7 +62,7 @@ const Navbar = (props) => {
         });
         break;
       case "documentos":
-        setSeleccion({
+        setseleccionNavBar({
           inicio: "gray",
           documentos: "rgb(0, 136, 255)",
           preguntas: "gray",
@@ -70,17 +71,19 @@ const Navbar = (props) => {
         });
         break;
     }
-  };
+  }; */
 
+  const {cambiarPagina, seleccionNavBar} = useContext(PaginasContext);
   return (
     <>
       <ul className="mynavbar">
         <li
           id="btn-inicio"
-          style={{ color: seleccion.inicio }}
+          style={{ color: seleccionNavBar.inicio }}
           onClick={(e) => {
-            props.setView(<Inicio name= {props.name}/>);
-            modificador("inicio");
+
+            cambiarPagina("inicio");
+
           }}
         >
           <i className="bi bi-house-fill"></i>
@@ -88,10 +91,9 @@ const Navbar = (props) => {
         </li>
         <li
           id="btn-preguntas"
-          style={{ color: seleccion.preguntas }}
+          style={{ color: seleccionNavBar.preguntas }}
           onClick={() => {
-            props.setView(<Preguntas/>)
-            modificador("preguntas");
+            cambiarPagina("preguntas");
           }}
         >
           <i className="bi bi-question-lg"></i>
@@ -99,10 +101,9 @@ const Navbar = (props) => {
         </li>
         <li
           id="btn-becas"
-          style={{ color: seleccion.becas }}
+          style={{ color: seleccionNavBar.becas }}
           onClick={() => {
-            props.setView(<Becas/>)
-            modificador("becas");
+            cambiarPagina("becas");
           }}
         >
           <i className="bi bi-info-lg"></i>
@@ -110,10 +111,9 @@ const Navbar = (props) => {
         </li>
         <li
           id="btn-documentos"
-          style={{ color: seleccion.documentos }}
+          style={{ color: seleccionNavBar.documentos }}
           onClick={() => {
-            props.setView(<Documentos/>)
-            modificador("documentos");
+            cambiarPagina("documentos");
           }}
         >
           <i className="bi bi-file-text-fill"></i>
@@ -121,10 +121,9 @@ const Navbar = (props) => {
         </li>
         <li
           id="btn-calificaciones"
-          style={{ color: seleccion.calificaciones }}
+          style={{ color: seleccionNavBar.calificaciones }}
           onClick={() => {
-            props.setView(<Calificaciones />);
-            modificador("calificaciones");
+            cambiarPagina("calificaciones");
           }}
         >
           <i className="bi bi-percent"></i>

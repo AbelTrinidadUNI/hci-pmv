@@ -1,3 +1,4 @@
+import { map } from 'lodash'
 import React from 'react'
 import { useEffect } from 'react'
 
@@ -24,12 +25,13 @@ const ModalDocConfirmar = (props) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {props.seleccionados.map(s => {
-                                return <tr key = {s.id} className='fila-tabla-confirmacion'>
-                                    <td>{s.nombre}</td>
-                                    <td>{s.precio}</td>
-                                </tr>
-                            })}
+
+                            {props.view === "flex" && map(props.docSeleccionados, (d) => <tr key={d.id} className='fila-tabla-confirmacion'>
+                                <td>{d.nombre}</td>
+                                <td>{d.precio}</td>
+                            </tr>)}
+                            
+
                         </tbody>
                         <tfoot>
                             <tr className='fila-tabla-confirmacion'>

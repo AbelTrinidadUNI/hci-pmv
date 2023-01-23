@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
-import Inicio from '../inicio/Inicio';
+import React, { useContext } from 'react'
+import PaginasContext from '../../contexts/PaginasContext';
 
-const Contenido = (props) => {
-  
+
+const Contenido = () => {
+  const {paginaActual} = useContext(PaginasContext);
+
   return (
     <div id='contenido'>
-      {props.view}
+      {paginaActual}
     </div>
   )
 }
