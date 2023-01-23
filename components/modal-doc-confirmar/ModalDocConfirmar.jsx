@@ -1,10 +1,15 @@
 import { map } from 'lodash'
 import React from 'react'
+import { useEffect } from 'react'
 
 const ModalDocConfirmar = (props) => {
     const estilo = {
         display: props.view
     }
+
+    useEffect(() => {
+        console.log(props.seleccionados);
+    },)
     return <>
         <div className="background-modal" style={estilo}>
             <div id="modal-conf-doc">
@@ -20,11 +25,13 @@ const ModalDocConfirmar = (props) => {
                             </tr>
                         </thead>
                         <tbody>
+
                             {props.view === "flex" && map(props.docSeleccionados, (d) => <tr key={d.id} className='fila-tabla-confirmacion'>
                                 <td>{d.nombre}</td>
                                 <td>{d.precio}</td>
                             </tr>)}
                             
+
                         </tbody>
                         <tfoot>
                             <tr className='fila-tabla-confirmacion'>
