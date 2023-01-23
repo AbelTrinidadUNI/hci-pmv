@@ -66,7 +66,7 @@ const Login = () => {
                                     </Form.Label>
                                     <InputGroup hasValidation>
                                         <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-                                        <Form.Control autocomplete="off"
+                                        <Form.Control autoComplete="off"
                                             type="mail"
                                             name="email"
                                             values={values.email}

@@ -16,17 +16,20 @@ export default function LogIn() {
         </div>
         <style jsx>{`
         .login-card{
-            margin: 50% 8%;
             border: 1px solid lightgray;
             padding: 13% 4%;
             border-radius: 20px;
             background-color: white;
+            width: 80%;
         }
         .background-div{
+            display: flex;
             width:  100%;
-            height: 100%
+            height: 100vh;
             background: rgb(9,71,121);
             background: linear-gradient(-25deg, rgba(9,88,121,1) 24%, rgba(0,212,255,1) 100%);
+            justify-content: center;
+            align-items: center;
         }
         `}</style>
         </>
