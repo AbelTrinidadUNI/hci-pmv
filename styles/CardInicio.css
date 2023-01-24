@@ -3,16 +3,19 @@
     border: 2px solid red;
 }
  */
-#inicio{
+#inicio {
     padding: 0.5rem;
+    height: calc(100vh - 100px - 50px);
+    overflow-y: auto;
 }
 
-#saludo{
+
+#saludo {
     padding: 1rem;
     color: black;
 }
 
-#cardsInicio{
+#cardsInicio {
     /* display: grid;
     grid-template-columns: repeat(2, 0fr);
     grid-gap: 1rem;
@@ -21,9 +24,10 @@
     flex-wrap: wrap;
     justify-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
-.card-inicio{
+.card-inicio {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,3 +38,5 @@
     color: white;
     margin: 0.4rem;
 }
+
+

@@ -72,7 +72,7 @@ const Becas = () => {
 
 
     return <>
-        <div>
+        <div id='becas'>
             <div id='becas-titulo'>
                 <h2>Becas</h2>
             </div>

@@ -45,7 +45,9 @@ const Documentos = () => {
 
     return <>
         <div id='documentos'>
-            <h2>Documentos</h2>
+            <div id='documentos-titulo'>
+                <h2>Documentos</h2>
+            </div>
             <div id='lista-documentos'>
                 {
                     documentos.map(d => <CardDocumento key={d.id} idDoc={d.id} nombre={d.nombre} precio={d.precio} tiempo={d.tiempo} addTotal={addTotal} reset={reset}/>)

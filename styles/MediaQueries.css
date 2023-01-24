@@ -1,0 +1,152 @@
+@media (min-width: 800px){
+    #preguntas, #becas, #documentos, #lista-materias-calificaciones{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    #btn-doc-confirmar{
+        width: calc(100vw - 1rem - 20%);
+    }
+}
+
+@media (min-width: 1000px){
+    #preguntas, #becas, #documentos, #lista-materias-calificaciones{
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    #btn-doc-confirmar{
+        width: calc(100vw - 1rem - 40%);
+    }
+}
+
+@media (max-width: 2000px) {
+    .card-inicio {
+        width: 350px;
+        height: 350px;
+        font-size: 1.9rem;
+    }
+
+    #saludo{
+        font-size: 1.7rem;
+    }
+
+}
+
+@media (max-width: 1000px) {
+    .card-inicio {
+        width: 350px;
+        height: 350px;
+        font-size: 2rem;
+    }
+
+    #saludo{
+        font-size: 1.6rem;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+    .card-inicio {
+        width: 280px;
+        height: 350px;
+        font-size: 1.6rem;
+    }
+    #saludo{
+        font-size: 1.5rem;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .card-inicio {
+        width: 240px;
+        height: 300px;
+        font-size: 1.6rem;
+    }
+    #saludo{
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 610px) {
+    .card-inicio {
+        width: 180px;
+        height: 200px;
+        font-size: 1.1rem;
+    }
+
+    
+}
+
+@media (max-width: 520px) {
+    .card-inicio {
+        width: 150px;
+        height: 200px;
+        font-size: 1rem;
+    }
+
+    #saludo{
+        font-size: 1.1rem;
+    }
+
+}
+
+@media (max-width: 320px) {
+    /*inicio*/
+    .card-inicio {
+        width: 200px;
+        height: 200px;
+        font-size: 1.2rem;
+    }
+
+    /*preguntas*/
+    
+}
+
+
+@media only screen and (min-width: 1024px) and (min-height: 600px){
+    .card-inicio {
+        width: 350px;
+        height: 200px;
+        font-size: 2rem;
+    }
+    #saludo{
+        font-size: 1.8rem;
+    }
+}
+
+@media only screen and (min-width: 1280px) and (min-height: 700px){
+    .card-inicio {
+        width: 450px;
+        height: 250px;
+        font-size: 2rem;
+        margin-inline-end: 1rem;
+        margin-block-end: 1rem;
+    }
+
+    #saludo{
+        font-size: 1.9rem;
+    }
+}
+
+@media only screen and (min-width: 1300px) and (min-height: 820px){
+    .card-inicio {
+        width: 550px;
+        height: 250px;
+        font-size: 2rem;
+        margin-inline-end: 1rem;
+        margin-block-end: 1rem;
+    }
+
+    #saludo{
+        font-size: 1.9rem;
+    }
+}
+
+
+/*el menos 50px es para que se pueda mostrar correctamente en mi celular - soy abel xd*/
+#preguntas, #becas, #documentos, #lista-materias-calificaciones, #inicio {
+    height: calc(100vh - 100px - 50px);
+}

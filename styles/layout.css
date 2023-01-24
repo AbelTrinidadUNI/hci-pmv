@@ -74,9 +74,9 @@ ul{
 #contenido{
     
     /* border: 1px solid red; */
-    max-height: calc(100vmax - 100px)/*82.5vh*/;
+    max-height: calc(100vmax - 100px);/*82.5vh*/
     margin-top: 50px;
     padding: 0.5rem;
 
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }

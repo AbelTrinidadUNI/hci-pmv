@@ -1,5 +1,21 @@
+#becas{
+    overflow-y: auto;
+    height: calc(100vh - 100px);
+
+}
+
+#becas-titulo{
+    margin-bottom: 1rem;
+    font-size: larger;
+
+}
+
+.text-titulo-beca{
+    font-size: 1.4rem;
+}
+
 .card-beca{
-    height: 5rem;
+    min-height: 5rem;
     background-color: rgba(44, 131, 162, 1);
     margin-bottom: 1rem;
     padding: 0.5rem;
@@ -22,12 +38,17 @@
 
 .tags-card-becas{
     margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
+.tags-card-becas > span { 
+    margin-right: 5px;
+}
 
 .foto-perfil{
     font-size: 3.5rem;
-    width: 4rem;
+    min-width: 78px;
     height: 4rem;
     display: flex;
     align-items: center;

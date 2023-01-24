@@ -7,6 +7,8 @@ import "../styles/Calificaciones.css";
 import "../styles/Documentos.css";
 import "../styles/Becas.css";
 import "../styles/Preguntas.css";
+import "../styles/MediaQueries.css";
+
 
 export default function App({ Component, pageProps }) {
   return <Component {...pageProps} />
