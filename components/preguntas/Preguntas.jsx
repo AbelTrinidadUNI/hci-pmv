@@ -27,6 +27,8 @@ const Preguntas = () => {
     const [preguntaSelec, setPreguntaSelec] = useState({});
     const isMounted = useRef(true);
     const [toastLoading, setToastLoading] = useState([]);
+    const [token, setToken] = useState("");
+    const [email, setEmail] = useState("");
 
     useEffect(() => {
         return () => {
@@ -37,6 +39,8 @@ const Preguntas = () => {
     useEffect(() => {
         if (isMounted.current) {
             const data = JSON.parse(localStorage.getItem('token'));
+            setToken(data.token);
+            setEmail(data.email);
             setToastLoading(toast.loading("cargando..."));
             const header = new Headers();
             header.append("Authorization", `bearer ${data.token}`);
@@ -48,7 +52,7 @@ const Preguntas = () => {
                 redirect: 'follow'
             }
 
-            fetch(`${Url()}/api/questions/page/${0}`, requestOption)
+            fetch(`${Url()}/api/questions`, requestOption)
                 .then(r => r.json())
                 .then(r => {
 
@@ -60,29 +64,39 @@ const Preguntas = () => {
     }, [])
 
 
-    const postApi = async (preguntaJSON) => {
-        await console.log("mandando");
-        return 200; //se tiene que cambiar por el codigo de estado de la respuesta del servidor
-    }
+    const mandarPregunta = (categorias, pregunta, anonimo) => {
 
-    const mandarPregunta = (categorias, pregunta) => {
-        const nuevaPregunta = {
-            tags: categorias,
-            pregunta: pregunta,
-            creadorId: 1, // obtener de en donde se haya guardado
-            fecha: new Date()// la fecha se podria asignar directamente en el servidor
+        const myHeaders = new Headers();
+        myHeaders.append("Authorization", `bearer ${token}`);
+        myHeaders.append("Content-Type", "application/json");
+      
+        const question = {
+            Ask : pregunta,
+            tags : categorias,
+            anonimous : anonimo,
+            email : 'Carlos.Torres123@mail.com'
         }
 
-        /**
-         * hacer el envio a la api y si responde de manera correcta ocultar el modal
-        */
-        console.log("Mnadando pregunta, (falta implementar)");
-        if (postApi(nuevaPregunta) === 200) {
-            setModalCrearPreg("none");
-            console.log("Se registro la pregunta")
-        } else {
-            console.log("No se pudo registrar la pregunta")
-        }
+        const raw = JSON.stringify({...question});
+      
+        const requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: raw,
+          redirect: 'follow'
+        };
+
+        fetch(`${Url()}/api/questions`, requestOptions)
+            .then(r => {
+                if(r.status == 200){
+                    setModalCrearPreg("none");
+                }
+            })
+            .catch(console.log)
+        
+        console.log(question);
+
+        
     }
 
     return <>
