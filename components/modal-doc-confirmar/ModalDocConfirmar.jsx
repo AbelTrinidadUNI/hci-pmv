@@ -1,6 +1,7 @@
-import { map } from 'lodash'
-import React from 'react'
-import { useEffect } from 'react'
+import { map } from 'lodash';
+import React from 'react';
+import { useEffect } from 'react';
+import toast, {Toaster} from "react-hot-toast";
 
 const ModalDocConfirmar = (props) => {
     const estilo = {
@@ -11,6 +12,7 @@ const ModalDocConfirmar = (props) => {
         console.log(props.seleccionados);
     },)
     return <>
+        <Toaster />
         <div className="background-modal" style={estilo}>
             <div id="modal-conf-doc">
                 <div className="modal-header" id='confirmacion-titulo'>
@@ -46,6 +48,7 @@ const ModalDocConfirmar = (props) => {
                         props.setView("none")
                     }}>Cancelar</button>
                     <button className="confirmar" onClick={() => { 
+                        toast.success("Gestionado con exito");
                         props.confirmar();
                         }}>Confirmar</button>
                 </div>

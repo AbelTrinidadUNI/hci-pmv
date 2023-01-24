@@ -7,7 +7,7 @@ import Url from "../../common/Url";
 
 const Preguntas = () => {
 
-    /*
+    
     const preguntas = [
         { id: 1, creador: "Juan Pablo Perez", pregunta: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, itaque.", fecha: new Date(), tags: ["#Becas", "#Calificaciones", "#Documentos"] },
         { id: 2, creador: "Juan Pablo Perez", pregunta: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, itaque.", fecha: new Date(), tags: ["#Becas", "#Calificaciones", "#Documentos"] },
@@ -20,8 +20,8 @@ const Preguntas = () => {
 
     ]
 
-    */
-    const [preguntas, setPreguntas] = useState([]);
+    
+    
     const [mostrarModal, setMostrarModal] = useState("none");
     const [mostrarCrearPreg, setModalCrearPreg] = useState("none");
     const [preguntaSelec, setPreguntaSelec] = useState({});
@@ -35,7 +35,7 @@ const Preguntas = () => {
             isMounted.current = false;
         }
     }, []);
-
+/* Esto va para mi CV en caso despues del examen, no tocar.
     useEffect(() => {
         if (isMounted.current) {
             const data = JSON.parse(localStorage.getItem('token'));
@@ -63,7 +63,7 @@ const Preguntas = () => {
         }
     }, [])
 
-
+*/
     const mandarPregunta = (categorias, pregunta, anonimo) => {
 
         const myHeaders = new Headers();
