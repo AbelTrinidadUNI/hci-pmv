@@ -5,6 +5,7 @@ const ModalCrearPregunta = (props) => {
     const categorias = ["#Becas", "#Calificaciones", "#Documentos", "#Extension"];
     const [categoria, setCategoria] = useState([]);
     const [pregunta, setPregunta] = useState("");
+    const [anonimo, setAnonimo] = useState(false);
     return <>
         <div className="background-modal" style={{ display: props.mostrar }}>
             <div className="modal-crear-preguntas">
@@ -26,11 +27,16 @@ const ModalCrearPregunta = (props) => {
                                 setPregunta(e.target.value || "");
                             }}></textarea>
                         </div>
+                        <div>
+                            <input type = "checkbox" checked ={anonimo} onChange = {e => {
+                                setAnonimo(e.target.checked)
+                            }} /> Anonimo?
+                        </div>
 
                         <div className='contenedor-btn-nueva-pregunta'>
                             <button className='btn-crear-pregunta' type='button' onClick={(e) => {
                                 e.preventDefault;
-                                props.mandarPregunta(categoria, pregunta);
+                                props.mandarPregunta(categoria, pregunta, anonimo);
                             }}
                             disabled={categoria?.length === 0 || pregunta?.length == 0 ? true : false}
                             >Preguntar</button>
