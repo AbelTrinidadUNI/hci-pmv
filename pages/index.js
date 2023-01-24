@@ -4,6 +4,8 @@ import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import Layout from '../components/layout/Layout'
 import { PaginasProvider } from '../contexts/PaginasContext'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 
 const inter = Inter({ subsets: ['latin'] })

@@ -12,7 +12,7 @@
 }
 
 .card-calificacion{
-    height: 5rem;
+    min-height: 5rem;
     width: calc(100% - 1rem);
     background-color: rgba(44, 131, 162, 1);
     margin-top: 0.5rem;
@@ -121,7 +121,7 @@
     padding: 1rem;
     border-radius: 10px;
     min-height: 10rem;
-    max-width: 18rem;
+    min-width: 18rem;
 }
 
 #texto-confirmacion{
@@ -150,4 +150,8 @@
 
 #lista-materias-calificaciones{
     padding-bottom: 1rem;
+}
+
+.card-calificacion > h3 {
+    margin-bottom: 0px;
 }
