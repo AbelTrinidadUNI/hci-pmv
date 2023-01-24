@@ -51,8 +51,12 @@ const Becas = () => {
 
 
     return <>
+
         <div>
             <Toaster />
+
+        <div id='becas'>
+
             <div id='becas-titulo'>
                 <h2>Becas</h2>
             </div>

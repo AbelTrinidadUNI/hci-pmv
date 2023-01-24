@@ -1,9 +1,14 @@
-#documentos>h2 {
+#documentos{
+    overflow-y: auto;
+}
+
+#documentos-titulo {
     margin-bottom: 1rem;
+    font-size: larger;
 }
 
 .card-documento {
-    height: 5rem;
+    min-height: 5rem;
     background-color: rgba(44, 131, 162, 1);
     margin-bottom: 1rem;
     padding: 0.5rem;

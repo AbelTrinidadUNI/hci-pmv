@@ -1,3 +1,8 @@
+#preguntas{
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
 #cabecera-preguntas {
     display: flex;
     justify-content: space-between;
@@ -22,11 +27,11 @@
     display: flex;
     border-radius: 10px;
     align-items: center;
-    overflow: inherit;
+   /*  overflow: inherit; */
 }
 
 .foto-perfil {
-    width: 18%;
+    min-width: 76px;
     height: 5rem;
 }
 
