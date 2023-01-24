@@ -25,6 +25,7 @@ const Documentos = () => {
     }
 
     const addTotal = (id, precio, seleccion) => {
+
         const newTotal = seleccion ? total + precio : (total - precio);
         setTotal(newTotal >= 0 ? newTotal : 0);
 
@@ -59,6 +60,7 @@ const Documentos = () => {
                 <span>{total} gs.</span>
             </button>
             <ModalDocConfirmar view={view} setView={setView} confirmar={confirmarSolicitud} docSeleccionados={docSeleccionados} total={total}/>   
+
         </div>
     </>
 }

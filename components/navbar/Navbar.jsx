@@ -76,12 +76,14 @@ const Navbar = (props) => {
   const {cambiarPagina, seleccionNavBar} = useContext(PaginasContext);
   return (
     <>
-      <ul className="navbar">
+      <ul className="mynavbar">
         <li
           id="btn-inicio"
           style={{ color: seleccionNavBar.inicio }}
           onClick={(e) => {
+
             cambiarPagina("inicio");
+
           }}
         >
           <i className="bi bi-house-fill"></i>

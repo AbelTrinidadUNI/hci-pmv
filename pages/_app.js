@@ -1,8 +1,10 @@
 //import '../styles/globals.css'
-//import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import "../styles/layout.css";
 import "../styles/CardInicio.css";
+import "../styles/LogIn.css";
+
 import "../styles/Calificaciones.css";
 import "../styles/Documentos.css";
 import "../styles/Becas.css";

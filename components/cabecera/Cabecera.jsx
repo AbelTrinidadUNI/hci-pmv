@@ -1,12 +1,12 @@
 import React from "react";
 
 
-const Cabecera = () => {
+const Cabecera = ({onClickMenu = ()=>{}}) => {
   return (
     <>
       <ul className="cabecera">
         <li>
-          <i className="bi bi-text-left"></i>
+          <i className="bi bi-text-left" onClick={onClickMenu}></i>
         </li>
         <li>
           <i className="bi bi-person-circle"></i>
