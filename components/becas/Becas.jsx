@@ -1,69 +1,47 @@
-import { isNull } from 'lodash';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import CardBeca from '../card-beca/CardBeca'
 import ModalBeca from '../modal-beca/ModalBeca'
+import toast, {Toaster} from 'react-hot-toast';
+import Url from '../../common/Url';
 
 const Becas = () => {
-    const becas = [
-        { 
-            id: 1, 
-            titulo: "Beca 1", 
-            descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, nam!",
-            tags: ["#beca", "#posgrado", "#intercambio"],
-            fecha: new Date().toJSON,
-            creador: "Juan Perez"
-        },
-        { 
-            id: 2, 
-            titulo: "Beca 2", 
-            descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem esse debitis mollitia unde possimus recusandae ipsam qui nihil, autem cupiditate?",
-            tags: ["#beca", "#posgrado", "#intercambio"],
-            fecha: new Date().toJSON,
-            creador: "Juan Perez"
-        },
-        { 
-            id: 3, 
-            titulo: "Beca 3", 
-            descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, nam!",
-            tags: ["#beca", "#posgrado", "#intercambio"],
-            fecha: new Date().toJSON,
-            creador: "Juan Perez"
-        },
-        { 
-            id: 4, 
-            titulo: "Beca 4", 
-            descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, nam!",
-            tags: ["#beca", "#posgrado", "#intercambio"],
-            fecha: new Date().toJSON,
-            creador: "Juan Perez"
-        },
-        { 
-            id: 5, 
-            titulo: "Beca 5", 
-            descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, nam!",
-            tags: ["#beca", "#posgrado", "#intercambio"],
-            fecha: new Date().toJSON,
-            creador: "Juan Perez"
-        },
-        { 
-            id: 6, 
-            titulo: "Beca 6", 
-            descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, nam!",
-            tags: ["#beca", "#posgrado", "#intercambio"],
-            fecha: new Date().toJSON,
-            creador: "Juan Perez"
-        },
-        { 
-            id: 7, 
-            titulo: "Beca 7", 
-            descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, nam!",
-            tags: ["#beca", "#posgrado", "#intercambio"],
-            fecha: new Date().toJSON,
-            creador: "Juan Perez"
-        }
-    ];
+    const [becas, setBecas] = useState([]);
     const [modal, setModal] = useState("none");
+    const [toastLoading, setToastLoading] = useState(null);
     const [becaSelecionada, setBecaSeleccionada] = useState(null);
+    const isMounted = useRef(true);
+    
+
+    useEffect(() => {
+        return() => {
+            isMounted.current = false;
+        }
+    }, [])
+
+    useEffect(() => {
+        if(isMounted.current){
+            const data = JSON.parse(localStorage.getItem('token'));
+            setToastLoading(toast.loading("cargando..."));
+            const header = new Headers();
+            header.append("Authorization", `bearer ${data.token}`);
+            header.append("Content-Type", "application/json");
+      
+            const requestOption = {
+              method :'GET',
+              headers : header,
+              redirect :'follow'
+            }
+      
+            fetch(`${Url()}/api/becas`, requestOption)
+              .then(r => r.json())
+              .then(r => {
+                console.log(r)
+                setBecas(r);
+                toast.dismiss(toastLoading);
+              })
+              .catch(console.log)
+        }
+    }, [])
 
     const seleccionarBeca = (idBeca) => {
         setBecaSeleccionada(becas.filter(b => b.id === idBeca)[0]); 
@@ -71,13 +49,15 @@ const Becas = () => {
     };
 
 
+
     return <>
         <div>
+            <Toaster />
             <div id='becas-titulo'>
                 <h2>Becas</h2>
             </div>
             <div id='lista-becas'>
-                {becas.map(b => <CardBeca key={b.id} idBeca={b.id} titulo={b.titulo} tags={b.tags} click={seleccionarBeca} />)}
+                {becas.map(b => <CardBeca key={b.id} idBeca={b.id} titulo={b.nombreBeca} tags={b.tags} click={seleccionarBeca} />)}
             </div>
             <ModalBeca mostrar={modal} setMostrar={setModal} beca={becaSelecionada}/>
         </div>

@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
-import CardPregunta from '../card-pregunta/CardPregunta'
-import ModalCrearPregunta from '../modal-pregunta/ModalCrearPregunta'
-import ModalPregunta from '../modal-pregunta/ModalPregunta'
+import React, { useState, useRef, useEffect } from 'react';
+import { toast } from 'react-hot-toast';
+import CardPregunta from '../card-pregunta/CardPregunta';
+import ModalCrearPregunta from '../modal-pregunta/ModalCrearPregunta';
+import ModalPregunta from '../modal-pregunta/ModalPregunta';
+import Url from "../../common/Url";
 
 const Preguntas = () => {
+
+    /*
     const preguntas = [
         { id: 1, creador: "Juan Pablo Perez", pregunta: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, itaque.", fecha: new Date(), tags: ["#Becas", "#Calificaciones", "#Documentos"] },
         { id: 2, creador: "Juan Pablo Perez", pregunta: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, itaque.", fecha: new Date(), tags: ["#Becas", "#Calificaciones", "#Documentos"] },
@@ -16,10 +20,44 @@ const Preguntas = () => {
 
     ]
 
+    */
+    const [preguntas, setPreguntas] = useState([]);
     const [mostrarModal, setMostrarModal] = useState("none");
     const [mostrarCrearPreg, setModalCrearPreg] = useState("none");
-
     const [preguntaSelec, setPreguntaSelec] = useState({});
+    const isMounted = useRef(true);
+    const [toastLoading, setToastLoading] = useState([]);
+
+    useEffect(() => {
+        return () => {
+            isMounted.current = false;
+        }
+    }, []);
+
+    useEffect(() => {
+        if (isMounted.current) {
+            const data = JSON.parse(localStorage.getItem('token'));
+            setToastLoading(toast.loading("cargando..."));
+            const header = new Headers();
+            header.append("Authorization", `bearer ${data.token}`);
+            header.append("Content-Type", "application/json");
+
+            const requestOption = {
+                method: 'GET',
+                headers: header,
+                redirect: 'follow'
+            }
+
+            fetch(`${Url()}/api/questions/page/${0}`, requestOption)
+                .then(r => r.json())
+                .then(r => {
+
+                    setPreguntas(r);
+                    toast.dismiss(toastLoading);
+                })
+                .catch(console.log);
+        }
+    }, [])
 
 
     const postApi = async (preguntaJSON) => {
@@ -34,15 +72,15 @@ const Preguntas = () => {
             creadorId: 1, // obtener de en donde se haya guardado
             fecha: new Date()// la fecha se podria asignar directamente en el servidor
         }
-        
+
         /**
          * hacer el envio a la api y si responde de manera correcta ocultar el modal
         */
         console.log("Mnadando pregunta, (falta implementar)");
-        if(postApi(nuevaPregunta) === 200){
+        if (postApi(nuevaPregunta) === 200) {
             setModalCrearPreg("none");
             console.log("Se registro la pregunta")
-        }else{
+        } else {
             console.log("No se pudo registrar la pregunta")
         }
     }
@@ -65,8 +103,8 @@ const Preguntas = () => {
                 }} />)}
             </div>
         </div>
-        <ModalCrearPregunta mostrar={mostrarCrearPreg} setMostrar={setModalCrearPreg} mandarPregunta={mandarPregunta}/>                           
-        <ModalPregunta mostrar={mostrarModal} setMostrar={setMostrarModal} pregunta={preguntaSelec}/>
+        <ModalCrearPregunta mostrar={mostrarCrearPreg} setMostrar={setModalCrearPreg} mandarPregunta={mandarPregunta} />
+        <ModalPregunta mostrar={mostrarModal} setMostrar={setMostrarModal} pregunta={preguntaSelec} />
     </>
 }
 

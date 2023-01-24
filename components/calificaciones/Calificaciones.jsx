@@ -1,10 +1,8 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import CardMateria from "../card-calificacion/CardMateria";
 import Url from '../../common/Url';
-import { Spinner } from "react-bootstrap";
 import toast, {Toaster} from 'react-hot-toast';
 
 
@@ -39,6 +37,7 @@ const Calificaciones = () => {
       fetch(`${Url()}/api/subjects/email/${data.email}`, requestOption)
         .then(r => r.json())
         .then(r => {
+          
           setMaterias(r);
           toast.dismiss(toastLoading);
         })
